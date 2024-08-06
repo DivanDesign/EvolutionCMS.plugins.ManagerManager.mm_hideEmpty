@@ -1,15 +1,15 @@
 /**
  * jQuery.ddMM.mm_hideEmpty
- * @version 1.2.1 (2022-05-24)
+ * @version 1.2.2 (2024-08-06)
  * 
- * @copyright 2016–2023
+ * @copyright 2016–2024
  */
 
 (function($){
 $.ddMM.mm_hideEmpty = {
 	/**
 	 * @method hideEmptySections
-	 * @version 1.1 (2022-05-23)
+	 * @version 1.1.1 (2024-08-06)
 	 * 
 	 * @desc Hide empty sections.
 	 * 
@@ -21,13 +21,13 @@ $.ddMM.mm_hideEmpty = {
 			.each(function(){
 				var $this = $(this);
 				
-				//Section header
+				// Section header
 				$this
 					.prev('.sectionHeader')
 					.hide()
 				;
 				
-				//Section body
+				// Section body
 				$this.hide();
 			})
 		;
@@ -35,7 +35,7 @@ $.ddMM.mm_hideEmpty = {
 	
 	/**
 	 * @method hideEmptyTabs
-	 * @version 1.0.3 (2022-05-23)
+	 * @version 1.0.4 (2024-08-06)
 	 * 
 	 * @desc Hide empty tabs.
 	 * 
@@ -47,10 +47,10 @@ $.ddMM.mm_hideEmpty = {
 			.each(function(){
 				var $this = $(this);
 				
-				//Page
+				// Page
 				$this.hide();
 				
-				//Navigation item
+				// Navigation item
 				$('.tab-pane .tab-row .tab')
 					.eq(
 						$this
@@ -66,7 +66,7 @@ $.ddMM.mm_hideEmpty = {
 	
 	/**
 	 * @method getEmptyElements
-	 * @version 1.1.1 (2023-05-24)
+	 * @version 1.1.2 (2024-08-06)
 	 * 
 	 * @desc Get parents that has no visible children.
 	 * 
@@ -82,19 +82,19 @@ $.ddMM.mm_hideEmpty = {
 		;
 		
 		return (
-			//First, get empty visible elements
+			// First, get empty visible elements
 			$elementsVisible
-				//That has no visible inputs
+				// That has no visible inputs
 				.not(':has(:input:visible)')
-				//And has no visible iframes
+				// And has no visible iframes
 				.not(':has(iframe:visible)')
 				
-				//Second, get empty invisible elements
+				// Second, get empty invisible elements
 				.add(
 					$elementsInvisible
-						//That has no inputs
+						// That has no inputs
 						.not(':has(:input)')
-						//And has no iframes
+						// And has no iframes
 						.not(':has(iframe)')
 				)
 		);

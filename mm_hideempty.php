@@ -11,12 +11,12 @@
  */
 
 function mm_hideEmpty($params = []){
-	//For backward compatibility
+	// For backward compatibility
 	if (
 		!is_array($params) &&
 		!is_object($params)
 	){
-		//Convert ordered list of params to named
+		// Convert ordered list of params to named
 		$params = \ddTools::orderedParamsToNamed([
 			'paramsList' => func_get_args(),
 			'compliance' => [
@@ -28,7 +28,7 @@ function mm_hideEmpty($params = []){
 	
 	$params = \DDTools\ObjectTools::extend([
 		'objects' => [
-			//Defaults
+			// Defaults
 			(object) [
 				'roles' => '',
 				'templates' => ''
@@ -49,22 +49,22 @@ function mm_hideEmpty($params = []){
 	global $modx;
 	
 	if ($modx->Event->name == 'OnDocFormPrerender'){
-		//The main js file including
+		// The main js file including
 		$output = includeJsCss(
 			$modx->getConfig('site_url') . 'assets/plugins/managermanager/widgets/mm_hideempty/jQuery.ddMM.mm_hideEmpty.js',
 			'html',
 			'jQuery.ddMM.mm_hideEmpty',
-			'1.2.1'
+			'1.2.2'
 		);
 		
 		$modx->Event->output($output);
 	}elseif ($modx->Event->name == 'OnDocFormRender'){
-		$output = '//---------- mm_hideEmpty :: Begin -----' . PHP_EOL;
+		$output = '// ---------- mm_hideEmpty :: Begin -----' . PHP_EOL;
 		
 		$output .= '$j.ddMM.mm_hideEmpty.hideEmptySections();' . PHP_EOL;
 		$output .= '$j.ddMM.mm_hideEmpty.hideEmptyTabs();' . PHP_EOL;
 		
-		$output .= '//---------- mm_hideEmpty :: End -----' . PHP_EOL;
+		$output .= '// ---------- mm_hideEmpty :: End -----' . PHP_EOL;
 		
 		$modx->Event->output($output);
 	}
